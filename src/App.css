@@ -1,5 +1,10 @@
-body {
-  font-family: 'Poppins', sans-serif;
+.stepper-box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  padding: 1rem 0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .stepper {
@@ -8,16 +13,10 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 2rem 3rem 4rem;
-  gap: 1rem; /* Adds some space between steps */
+  gap: 1rem;
 }
 
-.stepper-box{
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 1rem;
-  margin: 1rem;
-  padding: 1rem 0;
-}
+
 .step {
   display: flex;
   flex-direction: column;
@@ -44,12 +43,12 @@ body {
 }
 
 .active .step-number {
-  background-color: #007bff;
+  background-color: #006ad5;
   color: #fff;
 }
 
 .complete .step-number {
-  background-color: #006ad5;;
+  background-color: #006ad5;
   color: #fff;
 }
 
@@ -59,109 +58,101 @@ body {
   top: 25%;
   left: 0;
   right: 0;
-  height: 4px;
-  background-color: #ccc;
-  z-index: 0; /* Ensures the line is behind the steps */
+  height: 1px;
+  z-index: 100; /* Ensures the line is behind the steps */
 }
 
 .progress {
   height: 100%;
-  background-color: #006ad5;
-  transition: 0.2s ease;
+  background-color: #c4c4c4 !important;
   margin-left: 3rem;
   margin-right: 1rem;
-
 }
 
-.step-wrapper{
+.step-wrapper {
   background-color: white;
   padding: 0 10px;
   z-index: 999;
 }
 
-.form-field{
+.form-field {
   margin: 1rem 0;
 }
 
-.form-check{
+.form-check {
   margin: 0 0.5rem;
 }
 
-input[type=radio]{
+input[type="radio"] {
   border: 2px solid gray;
 }
 
-.btn{
+.btn {
   margin: 0 1rem;
 }
 
-.success-msg{
+.success-msg {
   color: #008000;
   font-size: 2.5rem;
   margin: 1.5rem 0;
-  
 }
 
-.Information{
+.Information {
   border-bottom: 1px solid #ccc;
   margin: 1rem 0;
 }
 
-.information-box{
+.information-box {
   margin: 2rem 0;
 }
 
-.form-control.is-invalid::placeholder{
+.form-control.is-invalid::placeholder {
   color: red !important;
 }
 
-
-@media screen and (max-width : 576px) {
-  .stepper{
+@media screen and (max-width: 576px) {
+  .stepper {
     margin: 1.2rem 1rem 2.5rem;
   }
-  .step-name{
+  .step-name {
     font-size: 14px;
   }
 
-  .success-msg{
+  .success-msg {
     font-size: 1.8rem;
   }
-  
 }
 
-
-@media screen and (max-width : 425px) {
-  .step-name{
+@media screen and (max-width: 425px) {
+  .step-name {
     font-size: 12px;
   }
-  .stepper{
+  .stepper {
     margin: 1.2rem 0.7rem 2rem;
   }
-  .step-wrapper{
+  .step-wrapper {
     padding: 0 5px;
   }
-  .success-msg{
+  .success-msg {
     font-size: 1.5rem;
   }
-  .data-value{
+  .data-value {
     text-align: end;
   }
 }
 
-
-@media screen and (max-width : 360px) {
-  .stepper-box{
+@media screen and (max-width: 360px) {
+  .stepper-box {
     border-radius: 0;
     margin: 0;
   }
-  .stepper{
+  .stepper {
     margin: 1.2rem 0.5rem 1.5rem;
   }
-  .step-wrapper{
+  .step-wrapper {
     padding: 0;
   }
-  .success-msg{
+  .success-msg {
     font-size: 1.5rem;
   }
 }

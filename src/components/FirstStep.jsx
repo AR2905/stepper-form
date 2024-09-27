@@ -27,7 +27,7 @@ const FirstStep = () => {
               name="firstName"
               placeholder="First Name"
               onChange={handleChange}
-              value={userData.firstName}
+              value={userData.firstName || ""}
               className={errors.firstName ? "is-invalid" : ""}
             />
             {errors.firstName && (
@@ -42,7 +42,7 @@ const FirstStep = () => {
               name="middleName"
               placeholder="Middle Name"
               onChange={handleChange}
-              value={userData.middleName}
+              value={userData.middleName || ""}
               className={errors.middleName ? "is-invalid" : ""}
             />
             {errors.middleName && (
@@ -60,7 +60,7 @@ const FirstStep = () => {
               name="lastName"
               placeholder="Last Name"
               onChange={handleChange}
-              value={userData.lastName}
+              value={userData.lastName || ""}
               className={errors.lastName ? "is-invalid" : ""}
             />
             {errors.lastName && (
@@ -75,7 +75,7 @@ const FirstStep = () => {
               name="phoneNumber"
               placeholder="Phone Number"
               onChange={handleChange}
-              value={userData.phoneNumber}
+              value={userData.phoneNumber || ""}
               className={errors.phoneNumber ? "is-invalid" : ""}
             />
             {errors.phoneNumber && (
@@ -93,7 +93,7 @@ const FirstStep = () => {
               name="email"
               placeholder="Enter email"
               onChange={handleChange}
-              value={userData.email}
+              value={userData.email || ""}
               className={errors.email ? "is-invalid" : ""}
             />
             {errors.email && (
@@ -106,11 +106,10 @@ const FirstStep = () => {
           <Form.Group controlId="formBirthday">
             <Form.Control
               type="text"
-              id="Bday"
               name="birthday"
               placeholder={`Birthday`}
               onChange={handleChange}
-              value={userData.birthday}
+              value={userData.birthday || ""}
               className={errors.birthday ? "is-invalid" : ""}
               onFocus={(e) => (e.target.type = "date")}
               onBlur={(e) => (e.target.type = "text")}
@@ -130,7 +129,7 @@ const FirstStep = () => {
               name="age"
               placeholder="Age (year)"
               onChange={handleChange}
-              value={userData.age}
+              value={userData.age || ""}
               className={errors.age ? "is-invalid" : ""}
             />
             {errors.age && (
@@ -145,7 +144,7 @@ const FirstStep = () => {
               name="blood"
               placeholder="Blood Group"
               onChange={handleChange}
-              value={userData.blood}
+              value={userData.blood || ""}
               className={errors.blood ? "is-invalid" : ""}
             />
             {errors.blood && (
@@ -163,7 +162,7 @@ const FirstStep = () => {
               name="height"
               placeholder="Height (Cm)"
               onChange={handleChange}
-              value={userData.height}
+              value={userData.height || ""}
               className={errors.height ? "is-invalid" : ""}
             />
             {errors.height && (
@@ -178,7 +177,7 @@ const FirstStep = () => {
               name="weight"
               placeholder="Weight (Kg)"
               onChange={handleChange}
-              value={userData.weight}
+              value={userData.weight || ""}
               className={errors.weight ? "is-invalid" : ""}
             />
             {errors.weight && (
@@ -189,78 +188,79 @@ const FirstStep = () => {
       </Row>
 
       <Row className="mb-3">
-        <Col md={6} className="form-field">
-          <Form.Group
-            controlId="formGender"
-            className={errors.gender ? "is-invalid" : ""}
-          >
-            <Form.Label>Gender</Form.Label>
-            <div className="d-flex justify-content-start">
-              <Form.Check
-                type="radio"
-                label="Male"
-                name="gender"
-                id="genderMale"
-                value="male"
-                checked={userData.gender === "male"}
-                onChange={handleChange}
-              />
-              <Form.Check
-                type="radio"
-                label="Female"
-                name="gender"
-                id="genderFemale"
-                value="female"
-                checked={userData.gender === "female"}
-                onChange={handleChange}
-              />
-            </div>
-            {errors.gender && (
-              <small className="text-danger">{errors.gender}</small>
-            )}
-          </Form.Group>
-        </Col>
-        <Col md={6} className="form-field">
-          <Form.Group
-            controlId="formMaritalStatus"
-            className={errors.maritalStatus ? "is-invalid" : ""}
-          >
-            <Form.Label>Marital Status</Form.Label>
-            <div className="d-flex justify-content-start">
-              <Form.Check
-                type="radio"
-                label="Single"
-                name="maritalStatus"
-                id="statusSingle"
-                value="single"
-                checked={userData.maritalStatus === "single"}
-                onChange={handleChange}
-              />
-              <Form.Check
-                type="radio"
-                label="Married"
-                name="maritalStatus"
-                id="statusMarried"
-                value="married"
-                checked={userData.maritalStatus === "married"}
-                onChange={handleChange}
-              />
-              <Form.Check
-                type="radio"
-                label="Divorced"
-                name="maritalStatus"
-                id="statusDivorced"
-                value="divorced"
-                checked={userData.maritalStatus === "divorced"}
-                onChange={handleChange}
-              />
-            </div>
-            {errors.maritalStatus && (
-              <small className="text-danger">{errors.maritalStatus}</small>
-            )}
-          </Form.Group>
-        </Col>
-      </Row>
+  <Col md={6} className="form-field">
+    <Form.Group
+      controlId="formGender"
+      className={errors.gender ? "is-invalid" : ""}
+    >
+      <Form.Label>Gender</Form.Label>
+      <div className="d-flex justify-content-start">
+        <Form.Check
+          type="radio"
+          id="male"
+          name="gender"
+          value="male"
+          onChange={handleChange}
+          label={<Form.Label htmlFor="male">Male</Form.Label>}
+        />
+        <Form.Check
+          type="radio"
+          id="female"
+          name="gender"
+          value="female"
+          checked={userData.gender === "female"}
+          onChange={handleChange}
+          label={<Form.Label htmlFor="female">Female</Form.Label>}
+        />
+      </div>
+      {errors.gender && (
+        <small className="text-danger">{errors.gender}</small>
+      )}
+    </Form.Group>
+  </Col>
+
+  <Col md={6} className="form-field">
+    <Form.Group
+      controlId="formMaritalStatus"
+      className={errors.maritalStatus ? "is-invalid" : ""}
+    >
+      <Form.Label>Marital Status</Form.Label>
+      <div className="d-flex justify-content-start">
+        <Form.Check
+          type="radio"
+          id="single"
+          name="maritalStatus"
+          value="single"
+          checked={userData.maritalStatus === "single"}
+          onChange={handleChange}
+          label={<Form.Label htmlFor="single">Single</Form.Label>}
+        />
+        <Form.Check
+          type="radio"
+          id="married"
+          name="maritalStatus"
+          value="married"
+          checked={userData.maritalStatus === "married"}
+          onChange={handleChange}
+          label={<Form.Label htmlFor="married">Married</Form.Label>}
+        />
+        <Form.Check
+          type="radio"
+          id="divorced"
+          name="maritalStatus"
+          value="divorced"
+          checked={userData.maritalStatus === "divorced"}
+          onChange={handleChange}
+          label={<Form.Label htmlFor="divorced">Divorced</Form.Label>}
+        />
+      </div>
+      {errors.maritalStatus && (
+        <small className="text-danger">{errors.maritalStatus}</small>
+      )}
+    </Form.Group>
+  </Col>
+</Row>
+
     </Form>
   </Container>
   );

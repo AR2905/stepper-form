@@ -25,7 +25,7 @@ const SecondStep = () => {
                 name="addressLine1"
                 placeholder="Enter Address Line 1"
                 onChange={handleChange}
-                value={addressData.addressLine1}
+                value={addressData.addressLine1 || ""}
                 className={`form-control ${errors.addressLine1 ? 'is-invalid' : ''}`}
               />
               {errors.addressLine1 && <small className="text-danger">{errors.addressLine1}</small>}
@@ -38,7 +38,7 @@ const SecondStep = () => {
                 name="addressLine2"
                 placeholder="Enter Address Line 2"
                 onChange={handleChange}
-                value={addressData.addressLine2}
+                value={addressData.addressLine2 || ""}
                 className={`form-control ${errors.addressLine2 ? 'is-invalid' : ''}`}
               />
               {errors.addressLine2 && <small className="text-danger">{errors.addressLine2}</small>}
@@ -50,7 +50,7 @@ const SecondStep = () => {
                 as="select"
                 name="city"
                 onChange={handleChange}
-                value={addressData.city}
+                value={addressData.city || ""}
                 className={`form-control ${errors.city ? 'is-invalid' : ''}`}
               >
                 <option>Select City</option>
@@ -69,7 +69,7 @@ const SecondStep = () => {
                 as="select"
                 name="state"
                 onChange={handleChange}
-                value={addressData.state}
+                value={addressData.state || ""}
                 className={`form-control ${errors.state ? 'is-invalid' : ''}`}
               >
                 <option>Select State</option>
@@ -86,7 +86,7 @@ const SecondStep = () => {
                 as="select"
                 name="country"
                 onChange={handleChange}
-                value={addressData.country}
+                value={addressData.country || ""}
                 className={`form-control ${errors.country ? 'is-invalid' : ''}`}
               >
                 <option>Select Country</option>
@@ -104,7 +104,7 @@ const SecondStep = () => {
                 name="pinCode"
                 placeholder="Enter Pin Code"
                 onChange={handleChange}
-                value={addressData.pinCode}
+                value={addressData.pinCode || ""}
                 className={`form-control ${errors.pinCode ? 'is-invalid' : ''}`}
               />
               {errors.pinCode && <small className="text-danger">{errors.pinCode}</small>}
