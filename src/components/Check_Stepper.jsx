@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { Button, Container } from "react-bootstrap";
 import { InfoContext } from "../ContextApi/InfoContext";
 import { fieldMappings, validateFields } from "../Features/Validation";
@@ -13,9 +12,9 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
   const handleNext = () => {
     let newErrors = {};
     if (currentStep === 1) {
-      newErrors = validateFields(userData, fieldMappings[1]);
+      newErrors = validateFields(userData, fieldMappings[1] , newErrors);
     } else if (currentStep === 2) {
-      newErrors = validateFields(addressData, fieldMappings[2]);
+      newErrors = validateFields(addressData, fieldMappings[2] , newErrors);
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -24,7 +23,7 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
     }
 
     setCurrentStep((prevStep) => Math.min(prevStep + 1, stepsConfig.length));
-    setErrors({});
+    // setErrors({});
   };
 
 
@@ -35,10 +34,10 @@ const CheckoutStepper = ({ stepsConfig = [] }) => {
 
   const ActiveComponent = stepsConfig[currentStep - 1]?.Component;
 
-  useEffect(() => {
-    if (!stepsConfig.length) return;
-    setErrors({});
-  }, [currentStep]);
+  // useEffect(() => {
+  //   if (!stepsConfig.length) return;
+  //   setErrors({});
+  // }, [currentStep]);
 
   if (!stepsConfig.length) {
     return null;

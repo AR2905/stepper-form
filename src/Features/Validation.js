@@ -23,8 +23,8 @@ export const fieldMappings = {
     ],
   };
 
-  export const validateFields = (data, fieldMappings) => {
-    const newErrors = {};
+  export const validateFields = (data, fieldMappings, newErrors) => {
+    // const newErrors = {};
   
     fieldMappings.forEach((fieldName) => {
       const value = data[fieldName];
